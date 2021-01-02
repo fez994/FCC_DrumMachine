@@ -65,10 +65,10 @@ document.addEventListener("keydown", function (e) {
     if (e.keyCode == keyCode) {
       function playSound() {
         const sound = document.getElementById(keyTrigger);
+        document.getElementById("keyText").innerHTML = id;
         sound.play();
       }
       playSound();
-      //console.log("Nigga you pressed the key number:! " + keyCode);
     }
   });
 });
@@ -79,14 +79,13 @@ class DrumMachine extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div id="display">
         <h1>FCC Drum Machine Project</h1>
-        <div>
-          {playable_buttons.map((audio_pad) => {
-            const { keyCode, keyTrigger, id, url } = audio_pad;
-            return <AudioPad id={id} keyTrigger={keyTrigger} url={url} />;
-          })}
-        </div>
+        {playable_buttons.map((audio_pad) => {
+          const { keyCode, keyTrigger, id, url } = audio_pad;
+          return <AudioPad id={id} keyTrigger={keyTrigger} url={url} />;
+        })}
+        <p id="keyText"></p>
       </div>
     );
   }
@@ -94,14 +93,13 @@ class DrumMachine extends React.Component {
 
 const AudioPad = (props) => {
   const { keyCode, keyTrigger, id, url } = props;
-
   function playSound() {
     const sound = document.getElementById(keyTrigger);
+    document.getElementById("keyText").innerHTML = id;
     sound.play();
   }
-
   return (
-    <div>
+    <div className="btn-grid">
       <button id={id} className="drum-pad" onClick={playSound} src={url}>
         {keyTrigger}
         <audio src={url} className="clip" id={keyTrigger}></audio>

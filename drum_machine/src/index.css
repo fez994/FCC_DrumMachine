@@ -22,3 +22,29 @@ body {
 h1 {
   text-align: center;
 }
+
+/* .btn-grid {
+  width: 100%;
+  display: inline;
+  padding: 4px 20px;
+  margin-top: 300px;
+} */
+
+.btn-grid {
+  display: -webkit-flex;
+  display: inline-flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding-left: 0.52rem;
+  padding-right: 0.52rem;
+  padding-top: 25%;
+}
+
+button {
+  height: 50px;
+  width: 50px;
+}
+
+#keyText {
+  text-align: center;
+}
